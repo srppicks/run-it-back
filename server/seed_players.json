@@ -6,7 +6,8 @@
     "height": 76,
     "weight": 190,
     "birthday": "01/01/1988",
-    "primLocation": "Indianapolis, IN",
+    "longitude": 39.7684,
+    "latitude": 86.1581,
     "loggedIn": false,
     "isAdmin": false,
     "currGameID": 0
@@ -20,7 +21,8 @@
     "height": 79,
     "weight": 210,
     "birthday": "01/02/1980",
-    "primLocation": "New York, NY",
+    "longitude": 40.7128,
+    "latitude": 74.00060,
     "loggedIn": false,
     "isAdmin": false,
     "currGameID": 0
@@ -34,35 +36,8 @@
     "height": 72,
     "weight": 185,
     "birthday": "01/03/1980",
-    "primLocation": "Los Angeles, CA",
-    "loggedIn": false,
-    "isAdmin": false,
-    "currGameID": 0
-
-
-  },
-  {
-    "name": "Eddie Curry",
-    "googleId": "1237",
-    "primaryPos": 5,
-    "height": 82,
-    "weight": 230,
-    "birthday": "01/04/1980",
-    "primLocation": "Scranton, PA",
-    "loggedIn": false,
-    "isAdmin": false,
-    "currGameID": 0
-
-
-  },
-  {
-    "name": "Dwight Howard",
-    "googleId": "1238",
-    "primaryPos": 5,
-    "height": 82,
-    "weight": 220,
-    "birthday": "02/05/1980",
-    "primLocation": "Orlando, FL",
+    "longitude": 34.0522,
+    "latitude": 118.2437,
     "loggedIn": false,
     "isAdmin": false,
     "currGameID": 0

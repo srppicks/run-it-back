@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col, Button, Container } from "reactstrap";
+import LocalGameMap from "./LocalGameMap"
 
 const Welcome = styled.h3`
   text-align: center;
@@ -49,7 +50,7 @@ function VerifyInput(objectUncheck) {
   else if (!BirthdayReader(objectUncheck.birthday)) {
     return false;
   }
-  else if (!PrimLocationReader(objectUncheck.primLocation)) {
+  else if (objectUncheck.latitude === 0 && objectUncheck.longitude === 0) {
     return false;
   }
 
@@ -63,9 +64,13 @@ const PersonPage = ( { backHome, currPlayer, handleEditReturn } ) => {
   const [newheight, setNewHeight] = React.useState(currPlayer.height ? currPlayer.height.toString() : "");
   const [newweight, setNewWeight] = React.useState(currPlayer.height ? currPlayer.weight.toString() : "");
   const [newbirthday, setNewBirthday] = React.useState(currPlayer.birthday ? currPlayer.birthday : "");
-  const [newlocation, setNewLocation] = React.useState(currPlayer.primLocation ? currPlayer.primLocation : "");
   const [newposition, setNewPosition] = React.useState(currPlayer.primaryPos ? currPlayer.primaryPos.toString() : "");
+  const [newlatitude, setNewLatitude] = React.useState(currPlayer.latitude ? currPlayer.latitude : 0);
+  const [newlongitude, setNewLongitude] = React.useState(currPlayer.longitude ? currPlayer.longitude : 0);
 
+  console.log(newlatitude);
+  console.log(newlongitude);
+  console.log(typeof(newlongitude));
 
   const constructNewPerson = () => ({
       name: currPlayer.name,
@@ -74,7 +79,8 @@ const PersonPage = ( { backHome, currPlayer, handleEditReturn } ) => {
       height: parseInt(newheight, 10),
       weight: parseInt(newweight, 10),
       birthday: newbirthday,
-      primLocation: newlocation,
+      longitude: newlongitude,
+      latitude: newlatitude,
       loggedIn: true,
       isAdmin: false,
       currGameID: 0
@@ -101,50 +107,47 @@ const PersonPage = ( { backHome, currPlayer, handleEditReturn } ) => {
 
   return (
     <div>
-      <Container>
-        <Row>
-          <Welcome>Welcome {currPlayer.name}</Welcome>
-        </Row>
-        <Row>
-          <Col>
-            <label>Height (in inches): </label>
-          </Col>
-          <Col>
-            <Statistic value={newheight} onChange={event => setNewHeight(event.target.value)}></Statistic>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label>Weight (in pounds): </label>
-          </Col>
-          <Col>
-            <Statistic value={newweight} onChange={event => setNewWeight(event.target.value)}></Statistic>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label>Birthday (MM/DD/YYYY): </label>
-          </Col>
-          <Col>
-            <Statistic value={newbirthday} onChange={event => setNewBirthday(event.target.value)}></Statistic>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label>Primary Location (City, State): </label>
-          </Col>
-          <Col>
-            <Statistic value={newlocation} onChange={event => setNewLocation(event.target.value)}></Statistic>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label>Position (1- PG, 2- SG...): </label>
-          </Col>
-          <Col>
-            <Statistic value={newposition} onChange={event => setNewPosition(event.target.value)}></Statistic>
-          </Col>
-        </Row>
+      <div>
+        <Container>
+          <Row>
+            <Welcome>Welcome {currPlayer.name}</Welcome>
+          </Row>
+          <Row>
+            <Col>
+              <label>Height (in inches): </label>
+            </Col>
+            <Col>
+              <Statistic value={newheight} onChange={event => setNewHeight(event.target.value)}></Statistic>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <label>Weight (in pounds): </label>
+            </Col>
+            <Col>
+              <Statistic value={newweight} onChange={event => setNewWeight(event.target.value)}></Statistic>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <label>Birthday (MM/DD/YYYY): </label>
+            </Col>
+            <Col>
+              <Statistic value={newbirthday} onChange={event => setNewBirthday(event.target.value)}></Statistic>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <label>Position (1- PG, 2- SG...): </label>
+            </Col>
+            <Col>
+              <Statistic value={newposition} onChange={event => setNewPosition(event.target.value)}></Statistic>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <LocalGameMap currPlayer={currPlayer} setNewLatitude={setNewLatitude} setNewLongitude={setNewLongitude}></LocalGameMap>
+      <div>
         <Row>
           <Col>
             {saveButton}
@@ -153,7 +156,7 @@ const PersonPage = ( { backHome, currPlayer, handleEditReturn } ) => {
             {cancelButton}
           </Col>
         </Row>
-      </Container>
+      </div>
     </div>
 
 

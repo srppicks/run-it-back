@@ -1,10 +1,14 @@
 [
   {
-    "name": "Orchard Park",
-    "address": "1234 Apple Lane, Denver, CO"
+    "name": "Lakewood Gulch",
+    "latitude": 39.73703588599595,
+    "longitude": -105.02395027835078,
+    "currGameId": 0
   },
   {
-    "name": "Madison Square Garden",
-    "address": "54 Philadelphia St., New York, NY"
+    "name": "Rego Park",
+    "latitude": 40.72479164096207,
+    "longitude": -73.86286864519212,
+    "currGameId": 0
   }
 ]

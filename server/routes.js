@@ -111,6 +111,12 @@ app.get("/api/players", (request, response, next) => {
   }, next); // <- Notice the "next" function as the rejection handler
 });
 
+app.get("/api/locations", (request, response, next) => {
+  Location.query().then(area => {
+    response.send(area);
+  }, next); // <- Notice the "next" function as the rejection handler
+});
+
 app.get("/api/players/:googleId", (request, response, next) => {
     Player.query()
       .where("googleId", request.params.googleId)

@@ -8,6 +8,7 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 import PersonPage from "./components/PersonPage"
 import LocalGameMap from "./components/LocalGameMap"
+import GameCreator from "./components/GameCreator"
 
 const Title = styled.h1`
   text-align: center;
@@ -137,17 +138,38 @@ const App = () => {
   const mapButton = (
     <Button
       onClick={() => setMode("map")}>
-      Map View
+      Find Game
     </Button>
 
   );
+
+  const createButton = (
+    <Button
+      onClick={() => setMode("create")}>
+      Create Game
+    </Button>
+
+  );
+
+  const returnHomeButton = (
+    <Button onClick={() => setMode("home")}>Return Home</Button>
+  );
+
+  if (currPlayer === null) {
+    return (
+      <div>
+        <Title>Log-In Tests</Title>
+        {!loggedIn && loginButton}
+      </div>
+    );
+  }
 
   if (mode === "home") {
     return (
       <div>
         <Title>Log-In Tests</Title>
         <ButtonBar>
-          {!loggedIn && loginButton} {loggedIn && profileButton} {loggedIn && mapButton} {loggedIn && logoutButton}
+          {!loggedIn && loginButton} {loggedIn && profileButton} {loggedIn && mapButton} {loggedIn && currPlayer.currGameID === 0 && createButton} {loggedIn && logoutButton}
         </ButtonBar>
       </div>
 
@@ -156,9 +178,18 @@ const App = () => {
   else if (mode === "map") {
     return (
       <div>
-        <Title>Google Maps</Title>
-        <LocalGameMap></LocalGameMap>
+        <Title>Find Game</Title>
+        <LocalGameMap currPlayer={currPlayer} setNewLatitude={null} setNewLongitude={null}></LocalGameMap>
+        {returnHomeButton}
+      </div>
 
+    );
+  }
+  else if (mode === "create") {
+    return (
+      <div>
+        <Title>Create a Game for Players to Join</Title>
+        <GameCreator currPlayer={currPlayer}></GameCreator>
       </div>
 
     );
@@ -167,7 +198,7 @@ const App = () => {
   return (
     <div>
       <Title>Profile Page</Title>
-      <PersonPage backHome={setMode} currPlayer={currPlayer} handleEditReturn={handleEditReturn} ></PersonPage>
+      <PersonPage backHome={setMode} currPlayer={currPlayer} handleEditReturn={handleEditReturn}></PersonPage>
     </div>
 
   );

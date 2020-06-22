@@ -3,8 +3,10 @@
 exports.up = function (knex) {
   return knex.schema.createTable('Location', (table) => {
     table.increments('id').primary();
-    table.string('name');
-    table.string('address');
+    table.integer("currGameId");
+    table.string("name");
+    table.float("latitude");
+    table.float("longitude");
   });
 };
 

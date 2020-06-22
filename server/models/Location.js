@@ -14,8 +14,9 @@ class Location extends Model {
       properties: {
         id: { type: "integer" },
         currGameId: { type: "integer" },
-        name: { type: "integer" },
-        address: { type: "string" },
+        name: { type: "string" },
+        latitude: { type: "number" },
+        longitude: { type: "number" }
 
       }
     };

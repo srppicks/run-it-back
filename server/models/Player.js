@@ -20,7 +20,8 @@ class Player extends Model {
         height: { type: "integer" },
         weight: { type: "integer" },
         birthday: { type: "string" },
-        primLocation: { type: "string" },
+        longitude: { type: "number" },
+        latitude: { type: "number" },
         //gameStatus
         loggedIn: { type: "boolean" },
         currGameID: { type: "integer", default: 0 },

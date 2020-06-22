@@ -9,7 +9,8 @@ exports.up = function (knex) {
     table.integer('height');
     table.integer('weight');
     table.string('birthday');
-    table.string('primLocation');
+    table.float('longitude');
+    table.float('latitude');
     table.boolean('loggedIn');
     table.boolean('isAdmin');
     table.integer('currGameID');

@@ -4,6 +4,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('Game', (table) => {
     table.increments('id').primary();
     table.integer('locationId');
+    table.integer('ownerId');
     table.integer('playersNeeded');
     table.integer('playersIn');
     table.string('startDate');

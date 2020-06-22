@@ -14,6 +14,7 @@ class Game extends Model {
       properties: {
         id: { type: "integer" },
         locationId: { type: "integer" },
+        ownerId: { type: "integer" },
         playersNeeded: { type: "integer" },
         playersIn: { type: "integer" },
         startDate: { type: "string" },
