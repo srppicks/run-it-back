@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Row, Col, Button, Container } from "reactstrap";
 
@@ -15,11 +15,44 @@ const Question = styled.input`
 
 
 const GameCreator = ( { currPlayer } ) => {
-  const [location, setLocation] = React.useState(null);
+  const [location, setLocation] = React.useState("");
+  const [areas, setAreas] = React.useState([]);
   const [playersNeeded, setPlayersNeeded] = React.useState(0);
   const [playersIn, setPlayersIn] = React.useState(0);
   const [date, setDate] = React.useState("");
   const [time, setTime] = React.useState("");
+  const [ampm, setAMPM] = React.useState("PM");
+
+  useEffect(() => {
+      const fetchAreas = () => {
+        fetch("/api/locations")
+          .then(response => {
+            if (!response.ok) {
+            //alert("E");
+            throw new Error(response.status_text);
+          }
+          //          alert("T");
+            return response.json();
+        })
+          .then(data => {
+            console.log(data);
+
+            setAreas(data);
+          })
+          .catch(err => console.log(err)); // eslint-disable-line no-console
+      };
+      fetchAreas();
+    }, []);
+
+  const htmlArray = [];
+  areas.forEach((area) => {
+    if (area.currGameId === 0) {
+      htmlArray.push(<option key={area.name} value={area.name}>{area.name}</option>)
+    }
+    else {
+        htmlArray.push(<option key={area.name} value={area.name}>{area.name} (currently filled)</option>)
+    }
+  });
 
   return (
     <div>
@@ -58,6 +91,45 @@ const GameCreator = ( { currPlayer } ) => {
               <option key="9" value={9}>9</option>
               <option key="10" value={10}>10</option>
             </select>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <label>Select location of game: </label>
+          </Col>
+          <Col>
+            <select value={location} onChange={(event) => {
+              console.log(typeof(event.target.value));
+              if (event.target.value.indexOf("currently filled") !== -1) {
+                alert("Location is taken. Please select another area or add your own!");
+              }
+              else {
+                setLocation(event.target.value);
+              }
+            }}>
+              {htmlArray}
+            </select>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <label>Give a date for the game: </label>
+          </Col>
+          <Col>
+            <Question value={date} onChange={event => setDate(event.target.value)}></Question>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <label>Select a time: </label>
+          </Col>
+          <Col>
+            <Question value={time} onChange={event => setDate(event.target.value)}></Question>
+          </Col>
+            
+          <Col>
+          </Col>
+          <Col>
           </Col>
         </Row>
       </Container>

@@ -158,7 +158,7 @@ const App = () => {
   if (currPlayer === null) {
     return (
       <div>
-        <Title>Log-In Tests</Title>
+        <Title>Welcome to Run It Back!</Title>
         {!loggedIn && loginButton}
       </div>
     );
@@ -167,7 +167,7 @@ const App = () => {
   if (mode === "home") {
     return (
       <div>
-        <Title>Log-In Tests</Title>
+        <Title>Welcome to Run It Back, {currPlayer.name}!</Title>
         <ButtonBar>
           {!loggedIn && loginButton} {loggedIn && profileButton} {loggedIn && mapButton} {loggedIn && currPlayer.currGameID === 0 && createButton} {loggedIn && logoutButton}
         </ButtonBar>

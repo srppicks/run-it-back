@@ -110,7 +110,7 @@ const PersonPage = ( { backHome, currPlayer, handleEditReturn } ) => {
       <div>
         <Container>
           <Row>
-            <Welcome>Welcome {currPlayer.name}</Welcome>
+            <Welcome>{currPlayer.name}'s Profile</Welcome>
           </Row>
           <Row>
             <Col>
