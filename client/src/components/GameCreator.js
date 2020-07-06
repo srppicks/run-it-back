@@ -22,6 +22,7 @@ const GameCreator = ( { currPlayer } ) => {
   const [date, setDate] = React.useState("");
   const [time, setTime] = React.useState("");
   const [ampm, setAMPM] = React.useState("PM");
+  const [timezone, setTimeZone] = React.useState("EST");
 
   useEffect(() => {
       const fetchAreas = () => {
@@ -124,12 +125,19 @@ const GameCreator = ( { currPlayer } ) => {
             <label>Select a time: </label>
           </Col>
           <Col>
-            <Question value={time} onChange={event => setDate(event.target.value)}></Question>
-          </Col>
-            
-          <Col>
+            <Question value={time} onChange={event => setTime(event.target.value)}></Question>
           </Col>
           <Col>
+            <select value={ampm} onChange={(event) => setAMPM(parseInt(event.target.value,10))}>
+              <option key="AM" value={"AM"}>AM</option>
+              <option key="PM" value={"PM"}>PM</option>
+            </select>
+            <select value={timezone} onChange={(event) => setTimeZone(event.target.value)}>
+              <option key="EST" value={"AM"}>EST</option>
+              <option key="CT" value={"CT"}>CT</option>
+              <option key="MT" value={"MT"}>MT</option>
+              <option key="PST" value={"PST"}>PST</option>
+            </select>
           </Col>
         </Row>
       </Container>

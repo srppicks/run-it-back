@@ -1,0 +1,71 @@
+.Header{
+    width: 100vw;
+    height: 95vh;
+    position: relative;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+    url(../../assets/images/bg.jpg) no-repeat center center/cover;
+}
+
+.Header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 4.375rem 3.125rem 11.875rem #000,
+    inset -4.375rem -3.125rem -11.875rem #000;
+}
+
+.Title {
+    margin: 20% 0 1.2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1em;
+}
+
+.Subtitle {
+    font-weight: 400;
+    font-size: 1.875rem;
+    line-height: 1.25em;
+    margin: 0 0 1.875rem;
+    text-transform: uppercase;
+}
+
+.Content {
+    width: 65%;
+    position: relative;
+    margin: 0 auto 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.Button {
+    display: inline-block;
+    background: #cd8500;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    margin: 20px 20%;
+    padding: 1.5rem;
+    border-radius: 0.1875rem;
+    font-size: 2rem;
+    text-align: center;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+    transition: background 0.2s ease-in;
+    cursor: pointer;
+}
+
+.Button:hover {
+    background: #e69500;
+}
+
+.Icon svg {
+    vertical-align: bottom;
+    margin-left: 1.5rem;
+}
