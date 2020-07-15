@@ -4,11 +4,6 @@ import "./App.css";
 import styled from "styled-components";
 import { Container, Button } from "reactstrap";
 import {Switch, Route} from 'react-router-dom';
-import { GoogleLogin, GoogleLogout } from "react-google-login";
-
-import PersonPage from "./components/PersonPage"
-import LocalGameMap from "./components/LocalGameMap"
-import GameCreator from "./components/GameCreator"
 
 import Main from './pages';
 
@@ -23,7 +18,7 @@ const ButtonBar = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-const GOOGLE_CLIENT_ID = "891271447458-2tacoegsns3ccft1b88g46t3a0kkn6ep.apps.googleusercontent.com";
+
 
 const App = () => {
   return (

@@ -4,7 +4,7 @@ import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-const Layout = ( { children } ) => {
+const Layout = ( { handleGoogleLogin, handleGoogleLogout, handleGoogleFailure, setMode, currPlayer, googleID, children } ) => {
     const [showSideDrawer, setShowSideDrawer] = React.useState(false);
 
     const sideDrawerClosedHandler = () => {
@@ -21,7 +21,13 @@ const Layout = ( { children } ) => {
     };
     return (
             <Fragment>
-                <Toolbar drawerToggleClicked={sideDrawerToggleHandler} />
+                <Toolbar drawerToggleClicked={sideDrawerToggleHandler}
+                        handleGoogleLogin={handleGoogleLogin}
+                        handleGoogleLogout={handleGoogleLogout}
+                        handleGoogleFailure={handleGoogleFailure}
+                        setMode={setMode}
+                        googleID={googleID}
+                        currPlayer={currPlayer}/>
                 <SideDrawer
                     open={showSideDrawer}
                     closed={sideDrawerClosedHandler} />

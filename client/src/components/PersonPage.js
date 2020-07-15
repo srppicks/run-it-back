@@ -60,7 +60,7 @@ function VerifyInput(objectUncheck) {
 
 }
 
-const PersonPage = ( { backHome, currPlayer, handleEditReturn } ) => {
+const PersonPage = ( { currPlayer, handleEditReturn } ) => {
   const [newheight, setNewHeight] = React.useState(currPlayer.height ? currPlayer.height.toString() : "");
   const [newweight, setNewWeight] = React.useState(currPlayer.height ? currPlayer.weight.toString() : "");
   const [newbirthday, setNewBirthday] = React.useState(currPlayer.birthday ? currPlayer.birthday : "");

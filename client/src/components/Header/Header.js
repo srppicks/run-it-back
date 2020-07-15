@@ -4,22 +4,37 @@ import {Link} from 'react-router-dom';
 import {Icon} from 'react-icons-kit';
 import {ic_keyboard_arrow_right} from 'react-icons-kit/md/ic_keyboard_arrow_right';
 import {ic_search} from 'react-icons-kit/md/ic_search';
+import Button from '../UI/Button/Button'
+
+const Header = ( { setMode, currPlayer } ) => {
+        if (currPlayer === null) {
+          return (
+            <div className={classes.Header}>
+                <div className={classes.Content}>
+                    <h1 className={classes.Title}>Run It Back</h1>
+                    <h2 className={classes.Subtitle}>BALL EVERYWHERE. PLAY ANYTIME.</h2>
+                    <h3 className={classes.Subtitle}>Sign-in Above to Access Games on this Website!</h3>
+                </div>
+            </div>
 
 
-const Header = () => {
+
+          );
+
+        }
         return (
             <div className={classes.Header}>
                 <div className={classes.Content}>
                     <h1 className={classes.Title}>Run It Back</h1>
                     <h2 className={classes.Subtitle}>BALL EVERYWHERE. PLAY ANYTIME.</h2>
-                    <Link className={classes.Button}>
+                    <Button className={classes.Button} purpose={setMode} name="Create Games">
                         Create Games
                         <Icon className={classes.Icon} icon={ic_keyboard_arrow_right} size={37}/>
-                    </Link>
-                    <Link className={classes.Button}>
+                    </Button>
+                    <Button className={classes.Button} purpose={setMode} name="Search Games">
                         Search Games
                         <Icon className={classes.Icon} icon={ic_search} size={37}/>
-                    </Link>
+                    </Button>
                 </div>
             </div>
         );
