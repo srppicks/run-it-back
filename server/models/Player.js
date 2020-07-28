@@ -23,9 +23,8 @@ class Player extends Model {
         longitude: { type: "number" },
         latitude: { type: "number" },
         //gameStatus
-        loggedIn: { type: "boolean" },
-        currGameID: { type: "integer", default: 0 },
-        isAdmin: { type: "boolean", default: false }
+        isAdmin: { type: "boolean", default: false },
+        inGame: { type: "boolean", default: false }
       }
     };
   }

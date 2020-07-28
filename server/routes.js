@@ -117,6 +117,12 @@ app.get("/api/locations", (request, response, next) => {
   }, next); // <- Notice the "next" function as the rejection handler
 });
 
+app.get("/api/games", (request, response, next) => {
+  Game.query().then(area => {
+    response.send(area);
+  }, next); // <- Notice the "next" function as the rejection handler
+});
+
 app.get("/api/players/:googleId", (request, response, next) => {
     Player.query()
       .where("googleId", request.params.googleId)
@@ -131,6 +137,14 @@ app.post("/api/players", (request, response, next) => {
       .insertAndFetch(request.body)
       .then(worker => {
         response.send(worker);
+      }, next);
+});
+
+app.post("/api/games", (request, response, next) => {
+    Game.query()
+      .insertAndFetch(request.body)
+      .then(game => {
+        response.send(game);
       }, next);
 });
 //PUT
@@ -148,6 +162,22 @@ app.put('/api/players/:id', (request, response, next) => {
       response.send(player);
     }, next);
 });
+
+app.put('/api/locations/:id', (request, response, next) => {
+  const { id, ...updatedLocation } = request.body; // eslint-disable-line no-unused-vars
+  if (id !== parseInt(request.params.id, 10)) {
+    throw new ValidationError({
+      statusCode: 400,
+      message: 'URL id and request id do not match'
+    });
+  }
+  Location.query()
+    .updateAndFetchById(request.params.id, updatedLocation)
+    .then(locat => {
+      response.send(locat);
+    }, next);
+});
+
 //DELETE
 
 

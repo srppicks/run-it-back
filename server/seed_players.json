@@ -8,9 +8,8 @@
     "birthday": "01/01/1988",
     "longitude": 39.7684,
     "latitude": 86.1581,
-    "loggedIn": false,
     "isAdmin": false,
-    "currGameID": 0
+    "inGame": false
 
 
   },
@@ -23,9 +22,8 @@
     "birthday": "01/02/1980",
     "longitude": 40.7128,
     "latitude": 74.00060,
-    "loggedIn": false,
     "isAdmin": false,
-    "currGameID": 0
+    "inGame": false
 
 
   },
@@ -38,9 +36,8 @@
     "birthday": "01/03/1980",
     "longitude": 34.0522,
     "latitude": 118.2437,
-    "loggedIn": false,
     "isAdmin": false,
-    "currGameID": 0
+    "inGame": false
 
 
   }

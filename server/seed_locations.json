@@ -2,13 +2,11 @@
   {
     "name": "Lakewood Gulch",
     "latitude": 39.73703588599595,
-    "longitude": -105.02395027835078,
-    "currGameId": 0
+    "longitude": -105.02395027835078
   },
   {
     "name": "Rego Park",
     "latitude": 40.72479164096207,
-    "longitude": -73.86286864519212,
-    "currGameId": 0
+    "longitude": -73.86286864519212
   }
 ]

@@ -1,0 +1,37 @@
+.GameCreator{
+  width: 100vw;
+  height: 175vh;
+  position: relative;
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+  url(../assets/images/pickup.png) no-repeat center center/cover;
+}
+
+.Welcome{
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff000;
+  color: red;
+}
+
+.Label{
+  padding: 0.75em 10%;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 0.25em;
+  margin: 0 0 1rem;
+  text-align: center;
+  color: white;
+}
+
+.Question{
+  text-align: center;
+  padding: 0.5em 10%;
+}
+
+.Body{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.Form{
+    display: inline-block;
+}

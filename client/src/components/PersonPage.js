@@ -2,12 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Col, Button, Container } from "reactstrap";
 import LocalGameMap from "./LocalGameMap"
+import classes from "./PersonPage.module.css";
 
 const Welcome = styled.h3`
   text-align: center;
   padding: 1rem;
   background-color: #fff000;
   color: red;
+`;
+
+const Labels = styled.label`
+  text-align: center;
+  padding: 10rem;
+  color: black;
 `;
 
 const Statistic = styled.input`
@@ -106,57 +113,54 @@ const PersonPage = ( { currPlayer, handleEditReturn } ) => {
   );
 
   return (
-    <div>
-      <div>
+    <div className={classes.PersonPage}>
         <Container>
           <Row>
-            <Welcome>{currPlayer.name}'s Profile</Welcome>
+            <h3 className={classes.Welcome}>{currPlayer.name}'s Profile</h3>
           </Row>
           <Row>
-            <Col>
-              <label>Height (in inches): </label>
-            </Col>
-            <Col>
-              <Statistic value={newheight} onChange={event => setNewHeight(event.target.value)}></Statistic>
-            </Col>
+            <h3 className={classes.Labels}>Height (in inches): </h3>
+            <div className={classes.Body}>
+              <div className={classes.Form}>
+                <input className={classes.Statistic} value={newheight} onChange={event => setNewHeight(event.target.value)}></input>
+              </div>
+            </div>
           </Row>
           <Row>
-            <Col>
-              <label>Weight (in pounds): </label>
-            </Col>
-            <Col>
-              <Statistic value={newweight} onChange={event => setNewWeight(event.target.value)}></Statistic>
-            </Col>
+          <h3 className={classes.Labels}>Weight (in pounds): </h3>
+          <div className={classes.Body}>
+            <div className={classes.Form}>
+              <input className={classes.Statistic} value={newweight} onChange={event => setNewWeight(event.target.value)}></input>
+            </div>
+          </div>
           </Row>
           <Row>
-            <Col>
-              <label>Birthday (MM/DD/YYYY): </label>
-            </Col>
-            <Col>
-              <Statistic value={newbirthday} onChange={event => setNewBirthday(event.target.value)}></Statistic>
-            </Col>
+            <h3 className={classes.Labels}>Birthday (MM/DD/YYYY): </h3>
+            <div className={classes.Body}>
+              <div className={classes.Form}>
+                <input className={classes.Statistic} value={newbirthday} onChange={event => setNewBirthday(event.target.value)}></input>
+              </div>
+            </div>
           </Row>
           <Row>
-            <Col>
-              <label>Position (1- PG, 2- SG...): </label>
-            </Col>
-            <Col>
-              <Statistic value={newposition} onChange={event => setNewPosition(event.target.value)}></Statistic>
-            </Col>
+            <h3 className={classes.Labels}>Position (1- PG, 2- SG, ...): </h3>
+            <div className={classes.Body}>
+              <div className={classes.Form}>
+                <input className={classes.Statistic} value={newposition} onChange={event => setNewPosition(event.target.value)}></input>
+              </div>
+            </div>
           </Row>
+          <Row>
+            <h3 className={classes.Labels}>Select Location on Map: </h3>
+            <LocalGameMap currPlayer={currPlayer} setNewLatitude={setNewLatitude} setNewLongitude={setNewLongitude}></LocalGameMap>
+          </Row>
+          <div style={{top: '85%', left: '42.5%', position: 'absolute' }}>
+              {saveButton}
+              {cancelButton}
+          </div>
         </Container>
-      </div>
-      <LocalGameMap currPlayer={currPlayer} setNewLatitude={setNewLatitude} setNewLongitude={setNewLongitude}></LocalGameMap>
-      <div>
-        <Row>
-          <Col>
-            {saveButton}
-          </Col>
-          <Col>
-            {cancelButton}
-          </Col>
-        </Row>
-      </div>
+
+
     </div>
 
 

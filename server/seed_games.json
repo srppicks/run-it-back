@@ -1,26 +1,12 @@
 [
   {
-    "locationId": 1,
+    "locationId": 3,
     "ownerId": 1,
     "playersNeeded": 2,
     "playersIn": 4,
     "startDate": "07/03/2020",
-    "startTime": "12:00"
-  },
-  {
-    "locationId": 1,
-    "ownerId": 2,
-    "playersNeeded": 3,
-    "playersIn": 7,
-    "startDate": "07/03/2020",
-    "startTime": "12:00"
-  },
-  {
-    "locationId": 2,
-    "ownerId": 3,
-    "playersNeeded": 1,
-    "playersIn": 3,
-    "startDate": "07/03/2020",
-    "startTime": "12:00"
+    "startTime": "12:00",
+    "aMpM": "AM",
+    "timeZone": "EST"
   }
 ]

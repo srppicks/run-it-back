@@ -11,9 +11,8 @@ exports.up = function (knex) {
     table.string('birthday');
     table.float('longitude');
     table.float('latitude');
-    table.boolean('loggedIn');
     table.boolean('isAdmin');
-    table.integer('currGameID');
+    table.boolean('inGame');
   });
 };
 

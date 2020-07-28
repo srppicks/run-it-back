@@ -9,6 +9,8 @@ exports.up = function (knex) {
     table.integer('playersIn');
     table.string('startDate');
     table.string('startTime');
+    table.string('aMpM');
+    table.string('timeZone');
   });
 };
 

@@ -73,7 +73,7 @@ const LocalGameMap = ( { currPlayer, setNewLatitude, setNewLongitude } ) => {
 
   if (setNewLatitude && setNewLongitude) {
     return (
-      <div style={{height: '100vh', width: '100%' }}>
+      <div style={{height: '75vh', width: '75%', left: '12.5%', position: 'absolute' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyCIXHbmHW8R8wNWLQNI1ZmWpmqqwptmW5o"}}
           defaultCenter={center}

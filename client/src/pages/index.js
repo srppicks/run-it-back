@@ -77,6 +77,30 @@ const Main = () => {
    });
  };
 
+ const handleGameCreate = (game) => {
+   if (game) {
+     console.log(game);
+     fetch(`/api/games`, {
+       method: 'POST',
+       body: JSON.stringify(game),
+       headers: new Headers({
+         Accept: 'application/json',
+         'Content-Type': 'application/json',
+       }),
+     }).then((response) => {
+       if (response.ok) {
+         return response.json();
+       }
+       throw new Error(response.statusText);
+     }).catch((err) => console.error(err));
+
+   }
+
+   setMode("Home");
+
+
+ };
+
  const handleEditReturn = (player) => {
    if (player) {
      const updatedPerson = { ...currPlayer, ...player };
@@ -155,7 +179,7 @@ const Main = () => {
            setMode={setMode}
            googleID={GOOGLE_CLIENT_ID}
            currPlayer={currPlayer}>
-     <GameCreator currPlayer={currPlayer}/>
+     <GameCreator currPlayer={currPlayer} handleGameCreate={handleGameCreate}/>
    </Layout>);
 
  }
